@@ -55,13 +55,12 @@ abstract class Material {
         }
     }
     
-    public void devolver(boolean devolver){
-        if(getPrestado() == true){
-            devolver = true;
-            System.out.println("Libro debe ser devuelto");
+    public void devolver(){
+        if(getPrestado()){
+            setPrestado(false);
+            System.out.println("Libro debe ser devuelto. Ahora esta libre");
         }else{
-            devolver = false;
-            System.out.println("El libro no se encuentra prestado");
+            System.out.println("El libro se encuentra prestado debe ser devuelto");
         }
     }
 
