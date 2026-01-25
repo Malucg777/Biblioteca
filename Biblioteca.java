@@ -34,9 +34,33 @@ public class Biblioteca {
     }
 
     public void devolverMaterial(String codigo) {
+        for (Material material : Materiales) {
+            if (material.getCodigo().equals(codigo)) {
+                if (material.getPrestado()) {
+                    material.devolver();
+                    double multa = material.calcularMulta();
+                    if (multa > 0) {
+                        System.out.println("Chaval has devulto el material con una multda de: " + multa);
+                        return;
+                    } else {
+                        System.out.println("Material devuelto sin multa, gracias chaval!");
+                        return;
+                    }
+                }
+            }
+        }
+        return;
     }
 
     public void buscarMaterialPorCodigo(String codigo) {
+        for (Material material : Materiales) {
+            if (material.getCodigo().equals(codigo)) {
+                System.out.println("Material encontrado: " + material.getTitulo());
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado ningun material con ese codigo chaval");
+        return;
     }
 
     public void listarMaterialesDisponibles() {
