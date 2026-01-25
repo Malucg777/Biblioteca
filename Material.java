@@ -54,14 +54,15 @@ abstract class Material {
             System.out.println("Libro disponible");
         }
     }
-    
-    public void devolver(){
-        if(getPrestado()){
+
+    public void devolver() {
+        if (getPrestado()) {
             setPrestado(false);
             System.out.println("Libro debe ser devuelto. Ahora esta libre");
-        }else{
+        } else {
             System.out.println("El libro se encuentra prestado debe ser devuelto");
         }
     }
 
+    abstract double calcularMulta();
 }
