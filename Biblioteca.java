@@ -64,9 +64,21 @@ public class Biblioteca {
     }
 
     public void listarMaterialesDisponibles() {
+        for (Material material : Materiales) {
+            if (!material.getPrestado()) {
+                System.out.println("Material disponible: " + material.getTitulo());
+            }
+        }
+        return;
     }
 
     public void listarMaterialesPrestados() {
+        for (Material material : Materiales) {
+            if (material.getPrestado()) {
+                System.out.println("Material prestado: " + material.getTitulo());
+            }
+        }
+        return;
     }
 
 }
